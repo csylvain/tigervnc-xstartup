@@ -4,4 +4,7 @@
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 vncconfig -iconic &
 #dbus-launch --exit-with-session gnome-session &
+# as is with terminating '&' for Ubuntu 20.04
 dbus-launch --exit-with-session env GNOME_SHELL_SESSION_MODE=ubuntu XDG_CURRENT_DESKTOP=ubuntu:GNOME /usr/bin/gnome-session --session=ubuntu &
+# and for Ubuntu 22.04, leave off the '&' at the end (otherwise the start up script fails)
+# dbus-launch --exit-with-session env GNOME_SHELL_SESSION_MODE=ubuntu XDG_CURRENT_DESKTOP=ubuntu:GNOME /usr/bin/gnome-session --session=ubuntu
